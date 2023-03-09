@@ -5,7 +5,17 @@ A simple command-line tool to manage a list of to-do items to keep track of item
 ## Command line Arguments
 
 - `-list`: A Boolean flag. When used, the tool will list all to-do items.
-- `-task`: A String flag. When used, the tool will include the string argument as a new todo item in the list.
+- `-add`: A Boolean flag. When used, the tool will include the string argument as a new todo item in the list from stdin or any reader like args.
+
+Example:
+
+```sh
+go build
+./todo -add including items from args
+./todo​​ ​​-list​
+​echo​​ ​​"This item comes from STDIN"​​ ​​|​​ ​​./todo​​ ​​-add​
+```
+
 - `-complete`: An integer flag. When used, the tool will mark the item number as completed.
 
 ## Env vars
