@@ -8,7 +8,7 @@ import (
 	"github.com/msa-ali/todo-cli"
 )
 
-const todoFilename = ".todo.json"
+var todoFilename = ".todo.json"
 
 func main() {
 	// go run main.go -h
@@ -24,6 +24,10 @@ func main() {
 	complete := flag.Int("complete", 0, "Item to be completed")
 
 	flag.Parse()
+
+	if os.Getenv("TODO_FILENAME") != "" {
+		todoFilename = os.Getenv("TODO_FILENAME")
+	}
 
 	l := &todo.List{}
 	if err := l.Get(todoFilename); err != nil {
