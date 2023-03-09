@@ -33,11 +33,12 @@ func main() {
 
 	switch {
 	case *list:
-		for _, item := range *l {
-			if !item.Done {
-				fmt.Println(item.Task)
-			}
-		}
+		fmt.Println(l)
+		// for _, item := range *l {
+		// 	if !item.Done {
+		// 		fmt.Println(item.Task)
+		// 	}
+		// }
 	case *complete > 0:
 		if err := l.Complete(*complete); err != nil {
 			fmt.Fprintln(os.Stderr, err)
